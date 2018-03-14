@@ -41,6 +41,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="madlib" destination="Jna-Yz-lmk" id="H0M-Sz-xNS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -49,7 +52,7 @@
         <!--View Controller-->
         <scene sceneID="0dO-1g-eVi">
             <objects>
-                <viewController id="9Aa-Dq-JNS" sceneMemberID="viewController">
+                <viewController id="9Aa-Dq-JNS" customClass="BViewController" customModule="mad_libs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="snT-Mi-lDD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,7 +66,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Verb" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z1T-aQ-zP4">
+                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Verb" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z1T-aQ-zP4">
                                 <rect key="frame" x="16" y="116" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="rwZ-TL-aEe"/>
@@ -72,7 +75,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Verb" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JBp-to-ecV">
+                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Verb" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JBp-to-ecV">
                                 <rect key="frame" x="16" y="162" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="tgz-dd-xWr"/>
@@ -81,7 +84,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Noun" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JTs-My-KJr">
+                            <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Noun" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JTs-My-KJr">
                                 <rect key="frame" x="16" y="208" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="XCq-aM-6GU"/>
@@ -93,6 +96,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQx-fR-m3u">
                                 <rect key="frame" x="162.5" y="270" width="49" height="30"/>
                                 <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitButtonPressed:" destination="9Aa-Dq-JNS" eventType="touchUpInside" id="YsK-Ig-1SP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -114,8 +120,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K3p-Z1-oC0"/>
                     </view>
+                    <connections>
+                        <outletCollection property="inputField" destination="IoJ-cu-6wQ" collectionClass="NSMutableArray" id="hrg-x4-2co"/>
+                        <outletCollection property="inputField" destination="z1T-aQ-zP4" collectionClass="NSMutableArray" id="JPk-X9-h44"/>
+                        <outletCollection property="inputField" destination="JBp-to-ecV" collectionClass="NSMutableArray" id="pqq-ev-MUp"/>
+                        <outletCollection property="inputField" destination="JTs-My-KJr" collectionClass="NSMutableArray" id="bP3-ks-WBf"/>
+                        <segue destination="viq-y0-NQR" kind="unwind" identifier="unwindSegueToViewController" unwindAction="unwindtoViewControllerWithSegue:" id="Jek-vM-aKu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZM-FY-b0p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="viq-y0-NQR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1193" y="134"/>
         </scene>
