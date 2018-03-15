@@ -11,6 +11,7 @@ import UIKit
 class BViewController: UIViewController {
     
     weak var delegate: BViewControllerDelegate?
+//    var madlib = ""
     
     @IBOutlet var inputField: [UITextField]!
     var inputs = [String]()
@@ -33,7 +34,10 @@ class BViewController: UIViewController {
             }
         }
         let madlib = "We are having a perfectly \(inputs[0]) time now. Later we will \(inputs[1]) and \(inputs[2]) in the \(inputs[3])."
+
+//        madlib = "We are having a perfectly \(inputs[0]) time now. Later we will \(inputs[1]) and \(inputs[2]) in the \(inputs[3])."
         delegate?.displayMadlib(text: madlib)
+        
         performSegue(withIdentifier: "unwindSegueToViewController", sender: self)
     }
 }

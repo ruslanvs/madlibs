@@ -26,10 +26,16 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func unwindtoViewController( segue: UIStoryboardSegue ){}
+    @IBAction func unwindtoViewController( segue: UIStoryboardSegue ){
+//        if let source = segue.source as? BViewController {
+//            madlib.text = source.madlib
+//        }
+//        madlib.text = segue.source.madlib
+    }
 }
 
 extension ViewController: BViewControllerDelegate {
+    
     func displayMadlib( text: String ){
         madlib.text = text
     }
